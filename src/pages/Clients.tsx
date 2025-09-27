@@ -1,41 +1,30 @@
 import { useState } from "react";
 import ClientForm from "@/components/clients/ClientForm";
 import ClientCard from "@/components/clients/ClientCard";
-
-interface Client {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  notes?: string;
-}
+import { useClients, useAddClient, useUpdateClient, useDeleteClient, type Client } from "@/hooks/useClients";
 
 const Clients = () => {
-  const [clients, setClients] = useState<Client[]>([]);
   const [editingClient, setEditingClient] = useState<Client | null>(null);
+  
+  const { data: clients = [], isLoading, error } = useClients();
+  const addClientMutation = useAddClient();
+  const updateClientMutation = useUpdateClient();
+  const deleteClientMutation = useDeleteClient();
 
   const handleAddClient = (clientData: Omit<Client, "id">) => {
-    const newClient = {
-      ...clientData,
-      id: Date.now().toString(), // Temporary ID generation
-    };
-    setClients([...clients, newClient]);
+    addClientMutation.mutate(clientData);
   };
 
   const handleEditClient = (clientData: Omit<Client, "id">) => {
     if (editingClient) {
-      setClients(clients.map(client => 
-        client.id === editingClient.id 
-          ? { ...clientData, id: editingClient.id }
-          : client
-      ));
+      updateClientMutation.mutate({ ...clientData, id: editingClient.id });
       setEditingClient(null);
     }
   };
 
   const handleDeleteClient = (id: string) => {
     if (confirm("¿Estás seguro de que quieres eliminar este cliente?")) {
-      setClients(clients.filter(client => client.id !== id));
+      deleteClientMutation.mutate(id);
     }
   };
 
@@ -46,6 +35,26 @@ const Clients = () => {
   const cancelEditing = () => {
     setEditingClient(null);
   };
+
+  if (isLoading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center">
+          <p className="text-muted-foreground">Cargando clientes...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center">
+          <p className="text-destructive">Error al cargar los clientes. Inténtalo de nuevo.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
