@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       appointments: {
         Row: {
+          appointment_ts: string | null
           client_id: number | null
           created_at: string
           date: string | null
@@ -24,6 +25,7 @@ export type Database = {
           time: string | null
         }
         Insert: {
+          appointment_ts?: string | null
           client_id?: number | null
           created_at?: string
           date?: string | null
@@ -32,6 +34,7 @@ export type Database = {
           time?: string | null
         }
         Update: {
+          appointment_ts?: string | null
           client_id?: number | null
           created_at?: string
           date?: string | null
@@ -73,6 +76,27 @@ export type Database = {
           name?: string | null
           notes?: string | null
           phone?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
         }
         Relationships: []
       }
