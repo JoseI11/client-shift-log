@@ -17,6 +17,7 @@ interface ClientCardProps {
 }
 
 const ClientCard = ({ client, onEdit, onDelete }: ClientCardProps) => {
+
   return (
     <Card className="hover:shadow-lg transition-all duration-200 border-0 shadow-md bg-card">
       <CardContent className="p-6">

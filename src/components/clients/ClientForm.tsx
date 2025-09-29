@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -27,7 +27,7 @@ interface ClientFormProps {
 const ClientForm = ({ onSubmit, editingClient, onCancel }: ClientFormProps) => {
   const form = useForm<ClientFormData>({
     resolver: zodResolver(clientSchema),
-    defaultValues: editingClient || {
+    defaultValues: {
       name: "",
       email: "",
       phone: "",
@@ -35,21 +35,34 @@ const ClientForm = ({ onSubmit, editingClient, onCancel }: ClientFormProps) => {
     },
   });
 
+  useEffect(() => {
+    if (editingClient) {
+      form.reset(editingClient);
+    } else {
+      form.reset({
+        name: "",
+        email: "",
+        phone: "",
+        notes: "",
+      });
+    }
+  }, [editingClient, form]);
+
   const handleSubmit = (data: ClientFormData) => {
     onSubmit(data);
-    if (!editingClient) {
-      form.reset();
-    }
     toast({
       title: editingClient ? "Cliente actualizado" : "Cliente registrado",
       description: "Los datos se han guardado correctamente.",
     });
   };
 
+
   return (
+    
     <Card className="shadow-lg border-0 bg-card">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl font-semibold text-foreground">
+         
           {editingClient ? "Editar Cliente" : "Registrar Nuevo Cliente"}
         </CardTitle>
       </CardHeader>
@@ -59,6 +72,7 @@ const ClientForm = ({ onSubmit, editingClient, onCancel }: ClientFormProps) => {
             <FormField
               control={form.control}
               name="name"
+          
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Nombre completo</FormLabel>
@@ -66,6 +80,7 @@ const ClientForm = ({ onSubmit, editingClient, onCancel }: ClientFormProps) => {
                     <Input 
                       placeholder="Ej: Juan Pérez" 
                       {...field}
+                
                       className="rounded-lg border-border focus:ring-primary"
                     />
                   </FormControl>

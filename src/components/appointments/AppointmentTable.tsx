@@ -39,7 +39,8 @@ const getStatusBadge = (status: string) => {
 
 const AppointmentTable = ({ appointments, onStatusChange }: AppointmentTableProps) => {
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    const [year, month, day] = dateString.split('-');
+    const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     return date.toLocaleDateString('es-ES', {
       day: '2-digit',
       month: '2-digit',

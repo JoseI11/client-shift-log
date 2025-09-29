@@ -16,6 +16,7 @@ const Clients = () => {
   };
 
   const handleEditClient = (clientData: Omit<Client, "id">) => {
+
     if (editingClient) {
       updateClientMutation.mutate({ ...clientData, id: editingClient.id });
       setEditingClient(null);
