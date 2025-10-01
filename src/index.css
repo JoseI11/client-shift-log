@@ -8,96 +8,97 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Fondo beige claro suave - reduce fatiga visual */
-    --background: 45 20% 97%;
-    --foreground: 220 20% 25%;
+    /* Fondo lavanda muy claro #F3F1F9 */
+    --background: 260 30% 96%;
+    --foreground: 260 25% 20%;
 
-    /* Cards con tono crema muy sutil */
-    --card: 40 30% 99%;
-    --card-foreground: 220 20% 25%;
+    /* Cards púrpura pastel #F8F6FC */
+    --card: 260 50% 98%;
+    --card-foreground: 260 25% 20%;
 
-    --popover: 40 30% 99%;
-    --popover-foreground: 220 20% 25%;
+    --popover: 260 50% 98%;
+    --popover-foreground: 260 25% 20%;
 
-    /* Azul principal suavizado */
-    --primary: 217 85% 58%;
+    /* Primario púrpura medio #7C5295 */
+    --primary: 280 30% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* Verde para éxito */
     --success: 142 70% 38%;
     --success-foreground: 0 0% 100%;
 
-    /* Gris cálido claro */
-    --secondary: 35 15% 94%;
-    --secondary-foreground: 220 20% 20%;
+    /* Acento rosa suave #E8B4B8 */
+    --secondary: 355 45% 82%;
+    --secondary-foreground: 260 25% 20%;
 
-    --muted: 35 15% 94%;
-    --muted-foreground: 220 15% 50%;
+    --muted: 260 20% 92%;
+    --muted-foreground: 260 15% 45%;
 
-    --accent: 35 20% 92%;
-    --accent-foreground: 220 20% 20%;
+    --accent: 355 45% 82%;
+    --accent-foreground: 260 25% 20%;
 
     --destructive: 0 75% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Bordes suaves */
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 217 85% 58%;
+    /* Bordes suaves lavanda */
+    --border: 260 25% 88%;
+    --input: 260 25% 88%;
+    --ring: 280 30% 45%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 45 20% 97%;
-    --sidebar-foreground: 220 18% 30%;
-    --sidebar-primary: 220 20% 20%;
-    --sidebar-primary-foreground: 45 20% 97%;
-    --sidebar-accent: 35 20% 93%;
-    --sidebar-accent-foreground: 220 20% 20%;
-    --sidebar-border: 35 20% 88%;
-    --sidebar-ring: 217 85% 58%;
+    --sidebar-background: 260 30% 96%;
+    --sidebar-foreground: 260 25% 25%;
+    --sidebar-primary: 280 30% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 35% 94%;
+    --sidebar-accent-foreground: 260 25% 25%;
+    --sidebar-border: 260 25% 88%;
+    --sidebar-ring: 280 30% 45%;
   }
 
   .dark {
-    /* Fondo gris medio - no negro puro para reducir contraste */
-    --background: 220 15% 18%;
-    --foreground: 40 20% 92%;
+    /* Fondo índigo oscuro - tema lavanda oscuro */
+    --background: 260 20% 15%;
+    --foreground: 260 20% 90%;
 
     /* Cards ligeramente más claros */
-    --card: 220 15% 22%;
-    --card-foreground: 40 20% 92%;
+    --card: 260 18% 20%;
+    --card-foreground: 260 20% 90%;
 
-    --popover: 220 15% 22%;
-    --popover-foreground: 40 20% 92%;
+    --popover: 260 18% 20%;
+    --popover-foreground: 260 20% 90%;
 
-    /* Azul suave en modo oscuro */
-    --primary: 217 75% 65%;
-    --primary-foreground: 220 15% 18%;
+    /* Púrpura claro en modo oscuro */
+    --primary: 280 35% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 28%;
-    --secondary-foreground: 40 20% 92%;
+    --secondary: 260 15% 28%;
+    --secondary-foreground: 260 20% 90%;
 
-    --muted: 220 15% 28%;
-    --muted-foreground: 40 10% 68%;
+    --muted: 260 15% 28%;
+    --muted-foreground: 260 10% 65%;
 
-    --accent: 220 15% 32%;
-    --accent-foreground: 40 20% 92%;
+    /* Acento rosa en modo oscuro */
+    --accent: 355 35% 55%;
+    --accent-foreground: 260 20% 90%;
 
     --destructive: 0 70% 55%;
-    --destructive-foreground: 40 20% 92%;
+    --destructive-foreground: 260 20% 90%;
 
     /* Bordes suaves en modo oscuro */
-    --border: 220 15% 32%;
-    --input: 220 15% 32%;
-    --ring: 217 75% 65%;
+    --border: 260 15% 30%;
+    --input: 260 15% 30%;
+    --ring: 280 35% 60%;
     
-    --sidebar-background: 220 15% 16%;
-    --sidebar-foreground: 40 15% 85%;
-    --sidebar-primary: 217 70% 60%;
+    --sidebar-background: 260 22% 12%;
+    --sidebar-foreground: 260 15% 85%;
+    --sidebar-primary: 280 35% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 26%;
-    --sidebar-accent-foreground: 40 15% 85%;
-    --sidebar-border: 220 15% 26%;
-    --sidebar-ring: 217 75% 65%;
+    --sidebar-accent: 260 15% 22%;
+    --sidebar-accent-foreground: 260 15% 85%;
+    --sidebar-border: 260 15% 22%;
+    --sidebar-ring: 280 35% 60%;
   }
 }
 
